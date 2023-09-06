@@ -1,0 +1,16 @@
+{% extends "appcoder/padre.html" %}
+
+{% load static %} 
+
+{% block title %} ESTA ES LA PAGINA DE PROFESORES {% endblock %}
+
+{%block contenido_que_cambia %}
+
+<h1>PROFSORES</h1>
+<ul>
+    {% for profe in profes %}
+        <li>{{profes.nombre}} - {{profes.apellido}}
+    {% endfor %}
+</ul>
+
+    {% endblock %}
