@@ -1,0 +1,14 @@
+{% extends "appcoder/padre.html" %}
+
+{% load static %} 
+
+{% block title %} ESTA ES LA PAGINA DE ESTUDIANTES {% endblock %}
+
+{%block contenido_que_cambia %}
+
+<h2> DATOS DEL ESTUDIANTE </h2>
+
+<p> NOMBRE: <i> {{estudiantes.nombre}}</i></p>
+<p> COMISION: <i> {{estudiantes.comision}}</i></p>
+<p> EMAIL: <i> {{estudiantes.email}}</i></p>
+{% endblock %}

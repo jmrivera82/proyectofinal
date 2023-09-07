@@ -13,8 +13,6 @@
     <li>
         {{estudiantes}}
         <a class="btn btn-info" href="{% url 'estudiante_detalle' estudiante.id %}">Mostrar</a>
-        <a class="btn btn-danger" href="{% url 'estudiante_borrar' estudiante.id %}">Borrar</a>
-
     </li>
 
     {% endfor %}
