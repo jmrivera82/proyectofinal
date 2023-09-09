@@ -22,6 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("",inicio, name="inicio"),
     path("appcoder/",include("appcoder.urls")),
-    path("appsistema/",include("appsistema.urls"))
+    path("appsistema/",include("appsistema.urls")),
+    path("applogin/",include("applogin.urls")),
+
 
 ]

@@ -1,0 +1,34 @@
+
+{% extends "appsistema/base.html" %}
+
+{% load static %}
+{% block titulo %} 
+
+
+<h1> FORMULARIO DE REGISTRO</h1>
+
+
+{% endblock %}
+
+
+
+{%block contenido_que_cambia %}
+
+<h2>Empresas 404 not found</h2>
+<br>
+<br>
+<h3>{{mensaje}}</h3>
+
+<form action="{% url 'register' %}" method="POST"> {% csrf_token %}
+
+    <table>
+
+            {{form.as_table}}
+
+    </table>
+    <br>
+    <input type="submit" value="REGISTRAR">
+
+</form>
+
+    {% endblock %}

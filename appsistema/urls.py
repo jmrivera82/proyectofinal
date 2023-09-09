@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import *
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
 path("inicio/",inicio, name="inicio"),
@@ -21,7 +22,7 @@ path("personal/borrar/<pk>", PersonalDelete.as_view(),name="personal_borrar"),
 path("personal/editar/<pk>", PersonalUpdate.as_view(),name="personal_editar"),
 
 
-
+path("logout/", LogoutView.as_view(), name='logout'),
 
 
 
