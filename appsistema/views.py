@@ -35,9 +35,38 @@ class EquipoList(ListView):
 class EquipoCreacion(CreateView):
     model=Equipos
     success_url=reverse_lazy("equipos_list")
-    fields=['codigoint','producto','tipo','descripcion','marca']
+    fields=['codigoint','tipo','descripcion','marca','estado']
 
+class EquipoDetalle(DetailView):
+    model=Personal
+    template_name="appsistema/equipo_detalle.html"
+    
+class EquipoUpdate(UpdateView):
+    model=Personal
+    success_url=reverse_lazy("equipo_list")    
+    fields=['codigoint','tipo','descripcion','marca','estado']
 
+class PersonalList(ListView):
+    model=Personal
+    template_name="appsistema/personal.html"
+    
+class PersonalCreacion(CreateView):
+    model=Personal
+    success_url=reverse_lazy("personal_list")
+    fields=['nombre', 'direccion', 'ciudad', 'fecha_ingreso', 'email', 'telefono']
+    
+class PersonalDetalle(DetailView):
+    model=Personal
+    template_name="appsistema/personal_detalle.html"
+    
+class PersonalDelete(DeleteView):
+    model=Personal
+    success_url=reverse_lazy("personal_list")
+    
+class PersonalUpdate(UpdateView):
+    model=Personal
+    success_url=reverse_lazy("personal_list")    
+    fields=['nombre', 'direccion', 'ciudad', 'fecha_ingreso', 'email', 'telefono']
 
 
  

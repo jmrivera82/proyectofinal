@@ -1,0 +1,28 @@
+
+{% extends "appsistema/base.html" %}
+
+{% load static %} 
+
+{% block titulo %} 
+
+
+<h1>SISTEMA DE GESTION DE TAREAS</h1>
+
+
+{% endblock %}
+
+{%block contenido_que_cambia %}
+
+<h2>Empresas 404 not found</h2>
+<br>
+<br>
+<h3>DATOS PERSONALES</h3>
+
+<p> NOMBRE: <i> {{personal.nombre}}</i></p>
+<p> DIRECCION: <i> {{personal.direccion}}</i></p>
+<p> CIUDAD: <i> {{personal.ciudad}}</i></p>
+<p> FECHA DE INGRESO: <i> {{personal.fecha_ingreso}}</i></p>
+<p> EMAIL: <i> {{personal.email}}</i></p>
+<p> TELEFONO: <i> {{personal.telefono}}</i></p>
+
+{% endblock %}

@@ -2,22 +2,41 @@
 
 {% load static %} 
 
-{% block title %} ESTA ES LA PAGINA DE PROFESORES {% endblock %}
+{% block title %} EDITANDO PROFESOR: {{profesor}} {% endblock %}
 
-{%block contenido_que_cambia %}
-
-<h1>PROFSORES</h1>
+{% block contenido_que_cambia %}
 
 <h3>{{mensaje}}</h3>
 
-<form action="{% url 'profesores' %}" method="post"> {% csrf_token %}
+<form action="{% url 'editarProfesor' profesor.id %}" method="POST"> {% csrf_token %}
     <table>
         {{formulario.as_table}}
     </table>
 
-    <input type="submit" value="agregar">
+    <input type="submit" value="Guardar cambios">
+
 </form>
 
 
 {% endblock %}
 
+{% for profesor in profesores %}
+<tr>
+    <td>
+        {{profesor.nombre}}
+    </td>
+    <td>
+        {{profesor.apellido}}
+    </td> 
+    <td>
+        {{profesor.email}}
+    </td>
+    <td>
+        {{profesor.profesion}}
+    </td> 
+    <td>
+        <a class="btn btn-danger" href="{% url 'elimninarProfesor' profesor.id %}">Eliminar</a>
+        <a class="btn btn-danger" href="{% url 'editarProfesor' profesor.id %}">Editar</a>
+    </td>
+</tr>
+{% endfor %}

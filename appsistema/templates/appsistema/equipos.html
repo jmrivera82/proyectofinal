@@ -16,21 +16,24 @@
 <h2>Empresas 404 not found</h2>
 <br>
 <br>
-<h3> Listado de Equipamiento </h3>
+<h3> Listado de Equipos </h3>
 
 <ul>
     {% for equipos in object_list %}
     <li>
         {{equipos}}
-        <a class="btn btn-info" href="{% url 'equipos_detalle' equipos.id %}">Ver más</a>
-        <a class="btn btn-danger" href="{% url 'equipos_borrar' equipos.id %}">Eliminar</a>
+        <a class="btn btn-info" href="{% url 'equipo_detalle' equipos.id %}">Mostrar</a>
+        <a class="btn btn-success" href="{% url 'equipo_editar' equipos.id %}">Modificar</a>
+
 
     </li>
 
     {% endfor %}
     <br>
     <br>
-    <a class="btn btn-primary" href="{% url 'equipos_crear' %}">Agregar equipo </a>
+    <a class="btn btn-primary" href="{% url 'equipos_list' %}">Ver listado </a>
+
+    <a class="btn btn-primary" href="{% url 'equipos_crear' %}">Agregar Equipo </a>
 </ul>
 
 {% endblock %}

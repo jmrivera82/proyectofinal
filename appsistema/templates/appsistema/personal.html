@@ -16,7 +16,25 @@
 <h2>Empresas 404 not found</h2>
 <br>
 <br>
-<h3>Gestión de personas</h3>
+<h3> Listado de Funcionarios del departamento </h3>
+
+<ul>
+    {% for personal in object_list %}
+    <li>
+        {{personal}}
+        <a class="btn btn-info" href="{% url 'personal_detalle' personal.id %}">Mostrar</a>
+        <a class="btn btn-success" href="{% url 'personal_editar' personal.id %}">Modificar</a>
+        <a class="btn btn-danger" href="{% url 'personal_borrar' personal.id %}">Eliminar</a>
 
 
-    {% endblock %}
+    </li>
+
+    {% endfor %}
+    <br>
+    <br>
+    <a class="btn btn-primary" href="{% url 'personal_list' %}">Ver listado </a>
+
+    <a class="btn btn-primary" href="{% url 'personal_crear' %}">Agregar personal </a>
+</ul>
+
+{% endblock %}
