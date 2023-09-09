@@ -1,0 +1,37 @@
+
+{% extends "appsistema/base.html" %}
+
+{% load static %} 
+
+{% block titulo %} 
+
+
+<h1>SISTEMA DE GESTION DE TAREAS</h1>
+
+
+{% endblock %}
+
+{%block contenido_que_cambia %}
+
+<h2>Empresas 404 not found</h2>
+<br>
+<br>
+<h3> Listado de Equipamiento </h3>
+
+<ul>
+    {% for equipos in object_list %}
+    <li>
+        {{equipos}}
+        <a class="btn btn-info" href="{% url 'equipos_detalle' equipos.id %}">Ver más</a>
+        <a class="btn btn-danger" href="{% url 'equipos_borrar' equipos.id %}">Eliminar</a>
+
+    </li>
+
+    {% endfor %}
+    <br>
+    <br>
+    <a class="btn btn-primary" href="{% url 'equipos_crear' %}">Agregar equipo </a>
+</ul>
+
+{% endblock %}
+

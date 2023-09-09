@@ -1,0 +1,32 @@
+
+{% extends "appsistema/base.html" %}
+
+{% load static %} 
+
+{% block titulo %} 
+
+
+<h1>SISTEMA DE GESTION DE TAREAS</h1>
+
+
+{% endblock %}
+
+{%block contenido_que_cambia %}
+
+<h2>Empresas 404 not found</h2>
+<br>
+<br>
+<h2> DATOS DE EQUIPOS </h2>
+
+<p> CODIGO INTERNO: <i> {{equipos.codigoint}}</i></p>
+<p> PRODUCTO: <i> {{equipos.producto}}</i></p>
+<p> TIPO: <i> {{equipos.tipo}}</i></p>
+<p> DESCRIPCION: <i> {{equipos.descripcion}}</i></p>
+<p> MARCA: <i> {{equipos.marca}}</i></p>
+
+    {% endblock %}
+
+
+
+
+   

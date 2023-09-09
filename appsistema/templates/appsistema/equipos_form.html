@@ -1,4 +1,5 @@
 
+
 {% extends "appsistema/base.html" %}
 
 {% load static %} 
@@ -16,7 +17,13 @@
 <h2>Empresas 404 not found</h2>
 <br>
 <br>
-<h3>Menu</h3>
+<h2> Formulario de ingreso de Equipos</h2>
 
+<form method="POST"> {% csrf_token %}
 
-    {% endblock %}
+    {{form.as_p}}
+    <input type ="submit" value="INGRESAR">
+
+</form>
+
+{% endblock %}
