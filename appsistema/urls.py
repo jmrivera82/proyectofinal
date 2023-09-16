@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import *
 from django.contrib.auth.views import LogoutView
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
 path("inicio/",inicio, name="inicio"),
@@ -23,8 +25,5 @@ path("personal/editar/<pk>", PersonalUpdate.as_view(),name="personal_editar"),
 
 
 path("logout/", LogoutView.as_view(), name='logout'),
-
-
-
 
 ]

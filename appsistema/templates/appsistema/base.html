@@ -22,12 +22,13 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'inicio' %}">Proyecto Coderhouse 43870</a>
+                {% if user.is_authenticated %}
                 <a class="btn btn-primary" href="{% url 'personal' %}">Personal</a>
                 <a class="btn btn-primary" href="{% url 'equipos' %}">Equipos</a>
                 <a class="btn btn-primary" href="{% url 'trabajos' %}">Trabajos</a>
                 <a class="btn btn-primary" href="{% url 'compras' %}">Compras</a>
                 <a class="btn btn-primary" href="{% url 'acercademi' %}">Acerca de</a>
-                {% if user.is_authenticated %}
+               
                 <p>Bienvenido: {{user.username}} </p>
                 <a class="btn btn-danger" href="{% url 'logout' %}">LOGOUT</a>
                 {% else %}

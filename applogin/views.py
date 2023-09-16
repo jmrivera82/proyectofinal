@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+
+
 from .forms import *
 
 # Create your views here.
@@ -41,3 +44,24 @@ def register(request):
     else:
         form=registrousuarioForm()
         return render(request,"applogin/register.html", {"form":form})
+    
+    
+@login_required
+def editarperfil(request):
+    usuario=request.user
+    if request.method=='POST':
+        form=UserEditForm(request.POST)
+        if form.is_valid():
+            info=form.cleaned_data()
+            usuario.email=info["email"]
+            usuario.password1=info["password1"]
+            usuario.password2=info["password2"]
+            usuario.first_name=info["first_name"]
+            usuario.last_name=info["last_name"]
+            usuario.save()
+            return render(request, "appsistema/inicio.html")
+        else:
+            return render(request, "applogin/editarperfil.html", {"form":form, "nombreusuario":usuario.username, "mensaje":f"nombre de usuario actualizado"})
+    else:
+        form=UserEditForm(instance=usuario)
+        return render(request, "applogin/editarperfil.html", {"form":form, "nombreusuario":usuario.username, "mensaje":"DATOS INVÁLIDOS"})               

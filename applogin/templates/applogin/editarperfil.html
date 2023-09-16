@@ -1,0 +1,42 @@
+{% extends "appsistema/base.html" %}
+
+{% load static %} 
+
+{% block title %} EDITANDO NUESTRO PERFIL: {{nombreusuario }} {% endblock %}
+
+{% block contenido_que_cambia %}
+
+<h3>{{mensaje}}</h3>
+
+<form action="{% url 'editarperfil' %}" method="POST"> {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+
+    <input type="submit" value="Guardar">
+
+</form>
+
+
+{% endblock %}
+
+{% for profesor in profesores %}
+<tr>
+    <td>
+        {{profesor.nombre}}
+    </td>
+    <td>
+        {{profesor.apellido}}
+    </td> 
+    <td>
+        {{profesor.email}}
+    </td>
+    <td>
+        {{profesor.profesion}}
+    </td> 
+    <td>
+        <a class="btn btn-danger" href="{% url 'elimninarProfesor' profesor.id %}">Eliminar</a>
+        <a class="btn btn-danger" href="{% url 'editarProfesor' profesor.id %}">Editar</a>
+    </td>
+</tr>
+{% endfor %}
