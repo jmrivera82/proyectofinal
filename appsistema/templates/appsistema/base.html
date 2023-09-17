@@ -31,6 +31,8 @@
                
                 <p>Bienvenido: {{user.username}} </p>
                 <a class="btn btn-danger" href="{% url 'logout' %}">LOGOUT</a>
+                <a class="btn btn-primary" href="{% url 'editarperfil' %}">EDITAR PERFIL</a>
+
                 {% else %}
                 <a class="btn btn-sucess" href="{% url 'login' %}">LOGIN</a>
                 {% endif %}
