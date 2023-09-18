@@ -1,6 +1,9 @@
 from django.urls import path
 from .views import register, login_request, editarperfil
 
+from django.conf import settings 
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     #LOGIN LOGOUT REGISTER
@@ -10,3 +13,4 @@ urlpatterns = [
 
 
 ]
+
