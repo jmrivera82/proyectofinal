@@ -1,18 +1,26 @@
 
 from django.shortcuts import render
-from .models import Equipos, Personal, Compras, Trabajos
+from .models import Equipos, Personal, Compras, Trabajos, Avatar
 
 from django.http import HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from .models import *
 
 # Create your views here.
 
+def obtenerAvatar(request):
+    avatares=Avatar.objects.filter(user=request.user.id)
+    if len(avatares)!=0:
+        return avatares[0].imagen.url
+    else:
+        return "/media/avatars/avatarpordefecto.jpg"
 
 def inicio(request):
-    return render(request,"appsistema/inicio.html")
+    avatar=Avatar.objects.filter(user=request.user.id)[0].imagen.url    
+    return render(request,"appsistema/inicio.html", {"avatar":obtenerAvatar(request)})
 
 @login_required
 def trabajos(request):
