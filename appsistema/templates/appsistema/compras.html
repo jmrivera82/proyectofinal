@@ -1,4 +1,3 @@
-
 {% extends "appsistema/base.html" %}
 
 {% load static %} 
@@ -16,7 +15,23 @@
 <h2>Empresas 404 not found</h2>
 <br>
 <br>
-<h3>Ingreso de compras</h3>
+<h3> Gestion de compras e ingreso de documentos</h3>
 
+<ul>
+    {% for compras in object_list %}
+    <li>
+        {{compras}}
+        <a class="btn btn-info" href="{% url 'compras_detalle' compras.id %}">Mostrar</a>
 
-    {% endblock %}
+    </li>
+
+    {% endfor %}
+    <br>
+    <br>
+    <a class="btn btn-primary" href="{% url 'compras_list' %}">Ver listado </a>
+
+    <a class="btn btn-primary" href="{% url 'compras_crear' %}">Agregar documento </a>
+</ul>
+
+{% endblock %}
+

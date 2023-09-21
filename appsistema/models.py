@@ -32,6 +32,9 @@ class Compras (models.Model):
     numfactura=models.IntegerField()
     monto=models.IntegerField()
     descripcion=models.CharField(max_length=50)
+    
+    def __str__ (self):
+        return f"{self.numfactura} - {self.monto}  - {self.descripcion}"
 
 class Avatar(models.Model):
     imagen=models.ImageField(upload_to="avatars")

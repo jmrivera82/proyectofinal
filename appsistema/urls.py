@@ -23,6 +23,10 @@ path("personal/<pk>", PersonalDetalle.as_view(),name="personal_detalle"),
 path("personal/borrar/<pk>", PersonalDelete.as_view(),name="personal_borrar"),
 path("personal/editar/<pk>", PersonalUpdate.as_view(),name="personal_editar"),
 
+path("compras/list/", ComprasList.as_view(),name="compras_list"),
+path("compras/nuevo/", ComprasCreacion.as_view(),name="compras_crear"),
+path("compras/<pk>", ComprasDetalle.as_view(),name="compras_detalle"),
+
 
 path("logout/", LogoutView.as_view(), name='logout'),
 

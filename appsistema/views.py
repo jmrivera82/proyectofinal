@@ -19,8 +19,9 @@ def obtenerAvatar(request):
         return "/media/avatars/avatarpordefecto.jpg"
 
 def inicio(request):
-    avatar=Avatar.objects.filter(user=request.user.id)[0].imagen.url    
-    return render(request,"appsistema/inicio.html", {"avatar":obtenerAvatar(request)})
+    return render(request,"appsistema/inicio.html")
+    #Avatar=Avatar.objects.filter(user=request.user.id)[0].imagen.url    
+    #return render(request,"appsistema/inicio.html", {"avatar":obtenerAvatar(request)})
 
 @login_required
 def trabajos(request):
@@ -50,11 +51,11 @@ class EquipoCreacion(LoginRequiredMixin, CreateView):
     fields=['codigoint','tipo','descripcion','marca','estado']
 
 class EquipoDetalle(LoginRequiredMixin, DetailView):
-    model=Personal
+    model=Equipos
     template_name="appsistema/equipo_detalle.html"
     
 class EquipoUpdate(LoginRequiredMixin, UpdateView):
-    model=Personal
+    model=Equipos
     success_url=reverse_lazy("equipo_list")    
     fields=['codigoint','tipo','descripcion','marca','estado']
 
@@ -80,5 +81,17 @@ class PersonalUpdate(LoginRequiredMixin, UpdateView):
     success_url=reverse_lazy("personal_list")    
     fields=['nombre', 'direccion', 'ciudad', 'fecha_ingreso', 'email', 'telefono']
 
+class ComprasList(ListView):
+        model=Compras
+        template_name="appsistema/compras.html"
+
+class ComprasCreacion(LoginRequiredMixin, CreateView):
+    model=Compras
+    success_url=reverse_lazy("compras_list")
+    fields=['numfactura','monto','descripcion']
+
+class ComprasDetalle(LoginRequiredMixin, DetailView):
+    model=Compras
+    template_name="appsistema/compras_detalle.html"
 
  
