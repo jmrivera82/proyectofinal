@@ -1,0 +1,28 @@
+
+{% extends "appsistema/base.html" %}
+
+{% load static %} 
+
+{% block titulo %} 
+
+
+<h1>SISTEMA DE GESTION DE TAREAS</h1>
+
+
+{% endblock %}
+
+{%block contenido_que_cambia %}
+
+<h2>Empresas 404 not found</h2>
+<br>
+<br>
+<h3> Formulario de Personal del Departamento</h3>
+
+<form method="post"> {% csrf_token %}
+
+    Estas seguro que borras la información "{{object}}"??
+    <input type ="submit" value="SI">
+
+</form>
+
+{% endblock %}

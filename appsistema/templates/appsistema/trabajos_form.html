@@ -1,0 +1,28 @@
+
+{% extends "appsistema/base.html" %}
+
+{% load static %} 
+
+{% block titulo %} 
+
+
+<h1>SISTEMA DE GESTION DE TAREAS</h1>
+
+
+{% endblock %}
+
+{%block contenido_que_cambia %}
+
+<h2>Empresas 404 not found</h2>
+<br>
+<br>
+<h3> Formulario de ingreso de documentos</h3>
+
+<form method="post"> {% csrf_token %}
+
+    {{form.as_p}}
+    <input type ="submit" value="INGRESAR">
+
+</form>
+
+{% endblock %}

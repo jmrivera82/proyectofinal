@@ -88,7 +88,7 @@ class ComprasList(ListView):
 class ComprasCreacion(LoginRequiredMixin, CreateView):
     model=Compras
     success_url=reverse_lazy("compras_list")
-    fields=['numfactura','monto','descripcion']
+    fields=['numfactura','monto','descripcion','proveedor']
 
 class ComprasDetalle(LoginRequiredMixin, DetailView):
     model=Compras
