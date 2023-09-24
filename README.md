@@ -16,3 +16,5 @@
 Usuario maestro:
 usuario admin
 clave 12345
+
+El ideal del proyecto es crear una herramienta de trabajo que me permita gestionar recursos y tener datos e información de trabajos realizados (historial), apoyando una futur migración de sistemas.

@@ -11,12 +11,12 @@ from .models import *
 
 # Create your views here.
 
-def obtenerAvatar(request):
-    avatares=Avatar.objects.filter(user=request.user.id)
-    if len(avatares)!=0:
-        return avatares[0].imagen.url
-    else:
-        return "/media/avatars/avatarpordefecto.jpg"
+#def obtenerAvatar(request):
+#    avatares=Avatar.objects.filter(user=request.user.id)
+#    if len(avatares)!=0:
+#        return avatares[0].imagen.url
+#    else:
+#        return "/media/avatars/avatarpordefecto.jpg"
 
 def inicio(request):
     return render(request,"appsistema/inicio.html")
@@ -94,4 +94,24 @@ class ComprasDetalle(LoginRequiredMixin, DetailView):
     model=Compras
     template_name="appsistema/compras_detalle.html"
 
- 
+class TrabajosList(LoginRequiredMixin, ListView):
+    model=Trabajos
+    template_name="appsistema/trabajos.html"
+    
+class TrabajosCreacion(LoginRequiredMixin, CreateView):
+    model=Trabajos
+    success_url=reverse_lazy("trabajos_list")
+    fields=['equipo', 'oficina', 'personal', 'descripcion', '', 'fecha_termino']
+    
+class TrabajosDetalle(LoginRequiredMixin, DetailView):
+    model=Trabajos
+    template_name="appsistema/trabajos_detalle.html"
+    
+class TrabajosDelete(LoginRequiredMixin, DeleteView):
+    model=Trabajos
+    success_url=reverse_lazy("trabajos_list")
+    
+class TrabajosUpdate(LoginRequiredMixin, UpdateView):
+    model=Trabajos
+    success_url=reverse_lazy("trabajos_list")    
+    fields=['equipo', 'oficina', 'personal', 'descripcion', 'fecha_inicio', 'fecha_termino']

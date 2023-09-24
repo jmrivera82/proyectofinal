@@ -14,9 +14,13 @@ class Equipos(models.Model):
         return f"{self.codigoint} - {self.descripcion} - {self.estado}"
     
 class Trabajos(models.Model):
-    nombre=models.CharField(max_length=50)
-    plataforma=models.CharField(max_length=20)
-    
+    equipo=models.CharField(max_length=50)
+    oficina=models.CharField(max_length=20)
+    personal_asignado=models.CharField(max_length=50)
+    descripcion=models.CharField(max_length=50)
+    fecha_inicio=models.DateField()
+    fecha_termino=models.DateField()
+        
 class Personal (models.Model):   
     nombre=models.CharField(max_length=50)
     direccion=models.CharField(max_length=50)
@@ -32,9 +36,11 @@ class Compras (models.Model):
     numfactura=models.IntegerField()
     monto=models.IntegerField()
     descripcion=models.CharField(max_length=50)
+    proveedor=models.CharField(max_length=50)
+
     
     def __str__ (self):
-        return f"{self.numfactura} - {self.monto}  - {self.descripcion}"
+        return f"{self.numfactura} - {self.monto}  - {self.descripcion} - {self.proveedor}"
 
 class Avatar(models.Model):
     imagen=models.ImageField(upload_to="avatars")
