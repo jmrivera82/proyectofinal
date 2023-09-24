@@ -30,7 +30,6 @@
                 <a class="btn btn-primary" href="{% url 'acercademi' %}">Acerca de</a>
                
                 <p>Bienvenido: {{user.username}} </p>
-                <img src="{{Avatar.object.filter(user=request.user.id)[0].imagen.url}}" alt=""/>
                 <a class="btn btn-danger" href="{% url 'logout' %}">LOGOUT</a>
                 <a class="btn btn-primary" href="{% url 'editarperfil' %}">EDITAR PERFIL</a>
 

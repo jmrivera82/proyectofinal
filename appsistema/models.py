@@ -42,6 +42,6 @@ class Compras (models.Model):
     def __str__ (self):
         return f"{self.numfactura} - {self.monto}  - {self.descripcion} - {self.proveedor}"
 
-class Avatar(models.Model):
-    imagen=models.ImageField(upload_to="avatars")
-    user=models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+#class Avatar(models.Model):
+#    imagen=models.ImageField(upload_to="avatars")
+#    user=models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
