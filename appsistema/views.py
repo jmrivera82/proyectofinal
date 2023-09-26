@@ -101,7 +101,7 @@ class TrabajosList(LoginRequiredMixin, ListView):
 class TrabajosCreacion(LoginRequiredMixin, CreateView):
     model=Trabajos
     success_url=reverse_lazy("trabajos_list")
-    fields=['equipo', 'oficina', 'personal', 'descripcion', '', 'fecha_termino']
+    fields=['equipo', 'oficina', 'personal', 'descripcion', 'fecha_inicio', 'fecha_termino']
     
 class TrabajosDetalle(LoginRequiredMixin, DetailView):
     model=Trabajos
@@ -115,3 +115,20 @@ class TrabajosUpdate(LoginRequiredMixin, UpdateView):
     model=Trabajos
     success_url=reverse_lazy("trabajos_list")    
     fields=['equipo', 'oficina', 'personal', 'descripcion', 'fecha_inicio', 'fecha_termino']
+    
+    
+def buscar(request):
+        
+    if request.GET["trabajo"]:
+        nombreTrabajo = request.GET['trabajo']
+        trabajo = trabajo.objects.filter(nombreTrabajo__icontains=nombreTrabajo)
+        
+        return render(request, "appsistema/buscar.html",{"Trabajo":trabajo})
+
+    else:
+        respuesta = "No se ingresó"
+    return render(request,"appsistema/inicio.html",{"respuesta":respuesta})
+
+
+def busquedaTrabajo(request):
+    return render(request,"appsistema/buscar_trabajos.html")

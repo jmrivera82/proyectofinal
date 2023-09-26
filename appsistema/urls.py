@@ -28,11 +28,14 @@ path("compras/nuevo/", ComprasCreacion.as_view(),name="compras_crear"),
 path("compras/<pk>", ComprasDetalle.as_view(),name="compras_detalle"),
 
 path("trabajos/list/", TrabajosList.as_view(),name="trabajos_list"),
-path("trabajos/nuevo/", TrabajosCreacion.as_view(),name="trabajos_crear"),
+path("trabajos/crear/", TrabajosCreacion.as_view(),name="trabajos_crear"),
 path("trabajos/<pk>",TrabajosDetalle.as_view(),name="trabajos_detalle"),
 path("trabajos/borrar/<pk>", TrabajosDelete.as_view(),name="trabajos_borrar"),
 path("trabajos/editar/<pk>", TrabajosUpdate.as_view(),name="trabajos_editar"),
 
 path("logout/", LogoutView.as_view(), name='logout'),
+
+path('busquedaTrabajo/',busquedaTrabajo,name='busquedaTrabajo'),
+path('buscar/',buscar),
 
 ]

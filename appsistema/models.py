@@ -16,7 +16,7 @@ class Equipos(models.Model):
 class Trabajos(models.Model):
     equipo=models.CharField(max_length=50)
     oficina=models.CharField(max_length=20)
-    personal_asignado=models.CharField(max_length=50)
+    personal=models.CharField(max_length=50)
     descripcion=models.CharField(max_length=50)
     fecha_inicio=models.DateField()
     fecha_termino=models.DateField()

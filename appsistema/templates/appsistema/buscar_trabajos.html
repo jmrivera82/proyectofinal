@@ -1,0 +1,31 @@
+
+{% extends "appsistema/base.html" %}
+
+{% load static %} 
+
+{% block titulo %} 
+
+
+<h1>SISTEMA DE GESTION DE TAREAS</h1>
+
+
+{% endblock %}
+
+{%block contenido_que_cambia %}
+
+<h2>Empresas 404 not found</h2>
+<br>
+<br>
+<h3>Buscar Trabajos</h3>
+
+<form action="/appsistema/buscar/" method="GET">
+
+    <input type="text", name="trabajo", id="trabajo">
+
+    <input type="submit", value="Buscar">
+
+</form>
+
+
+
+{% endblock %}
