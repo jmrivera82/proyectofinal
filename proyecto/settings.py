@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "appcoder",
     "appsistema",
     "applogin",
+    "appmensajes"
 ]
 
 MIDDLEWARE = [

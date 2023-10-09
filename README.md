@@ -3,6 +3,8 @@
 
 ##REALIZADO POR: JOSE RIVERA
 
+##PROFESOR: Sr. Franco Di Martino
+
 ##Ruta del programa: http://127.0.0.1:8000/appsistema/inicio
 
 **primer ingreso se debe crear un usuario 

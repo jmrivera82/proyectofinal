@@ -27,6 +27,7 @@ urlpatterns = [
     path("appcoder/",include("appcoder.urls")),
     path("appsistema/",include("appsistema.urls")),
     path("applogin/",include("applogin.urls")),
+    path("appmensajes/", include ("appmensajes.urls"))
 
 
 ]
