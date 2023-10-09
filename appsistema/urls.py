@@ -38,4 +38,6 @@ path("logout/", LogoutView.as_view(), name='logout'),
 path('busquedaTrabajo/',busquedaTrabajo,name='busquedaTrabajo'),
 path('buscar/',buscar),
 
+
+
 ]
